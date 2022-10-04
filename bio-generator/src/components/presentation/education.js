@@ -6,7 +6,7 @@ import { skinCodes, fieldCd } from "./../../constants/typeCodes";
 // import { connect } from 'react-redux'
 // import * as educationActions from '../../actions/educationActions';
 // import {bindActionCreators} from 'redux';
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   setEducation,
   updateEducation,
@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 
 function Education(props) {
   console.log("Education");
-  //   let history = useHistory();
+  const navigate = useNavigate();
   const [education, setEducation] = useState(props.educationSection); //{}
 
   const onchange = (event) => {
@@ -37,7 +37,7 @@ function Education(props) {
       //set
       props.setEducation(education);
     }
-    // history.push("/finalize");
+    navigate("/finalize");
   };
 
   return (

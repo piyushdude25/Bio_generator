@@ -5,18 +5,18 @@ import { fieldCd, skinCodes } from "../../constants/typeCodes";
 // import * as contactActions from '../../actions/contactActions';
 // import { bindActionCreators } from 'redux';
 // import { withRouter } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ResumePreview from "./resumePreview";
 import { setContact, updateContact } from "../../redux/actions/contactAction";
 import { connect } from "react-redux";
 
 function Contact(props) {
-  //   let history = useHistory();
+  const navigate = useNavigate();
   const [contact, setContact] = useState(props.contact);
 
   useEffect(() => {
     if (!props.document || !props.document.id) {
-      //   history.push("/getting-started");
+      navigate("/getting-started");
     }
   }, []);
 
@@ -33,7 +33,7 @@ function Contact(props) {
       //set
       props.setContact(contact);
     }
-    // history.push("/education");
+    navigate("/education");
   };
 
   const getFieldData = (key) => {

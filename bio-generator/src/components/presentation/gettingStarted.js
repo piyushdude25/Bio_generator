@@ -4,13 +4,13 @@ import { skinCodes } from "../../constants/typeCodes";
 // import { bindActionCreators } from 'redux';
 
 // import { withRouter } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { setSkin } from '../../redux/actions/documentActions';
 import { connect } from "react-redux";
 import { setSkin, updateSkin } from "../../redux/actions/documentActions";
 
 function GettingStarted(props) {
-  //   let history = useHistory();
+  const navigate = useNavigate();
 
   const onChange = (skinCd) => {
     if (props.document.id) {
@@ -18,7 +18,7 @@ function GettingStarted(props) {
     } else {
       props.setDocument(skinCd);
     }
-    // history.push("/contact");
+    navigate("/contact");
   };
 
   return (
